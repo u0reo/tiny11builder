@@ -399,6 +399,11 @@ Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'EdgeHistoryAISearchE
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'BuiltInAIAPIsEnabled' 'REG_DWORD' '0'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'AIGenThemesEnabled' 'REG_DWORD' '0'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'ShareBrowsingHistoryWithCopilotSearchAllowed' 'REG_DWORD' '0'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'EdgeEntraCopilotPageContext' 'REG_DWORD' '0'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'Microsoft365CopilotChatIconEnabled' 'REG_DWORD' '0'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'ComposeInlineEnabled' 'REG_DWORD' '0'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'GenAILocalFoundationalModelSettings' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'DevToolsGenAiSettings' 'REG_DWORD' '2'
 
 Write-Output "Preventing Store from reinstalling Copilot"
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\Appx' 'RemoveDefaultMicrosoftStorePackages' 'REG_DWORD' '1'
