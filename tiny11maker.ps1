@@ -386,6 +386,18 @@ Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'EdgeHistoryAISearchE
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'BuiltInAIAPIsEnabled' 'REG_DWORD' '0'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'AIGenThemesEnabled' 'REG_DWORD' '0'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'ShareBrowsingHistoryWithCopilotSearchAllowed' 'REG_DWORD' '0'
+
+Write-Output "Preventing Store from reinstalling Copilot"
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\Appx' 'RemoveDefaultMicrosoftStorePackages' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\Appx\Microsoft.Copilot_8wekyb3d8bbwe' 'RemovePackage' 'REG_DWORD' '1'
+
+Write-Output "Disabling AI features in Notepad and Paint"
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\WindowsNotepad' 'DisableAIFeatures' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Paint' 'DisableCocreator' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Paint' 'DisableImageCreator' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Paint' 'DisableGenerativeFill' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Paint' 'DisableGenerativeErase' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Paint' 'DisableRemoveBackground' 'REG_DWORD' '1'
 Write-Output "Prevents installation of Teams:"
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Teams' 'DisableInstallation' 'REG_DWORD' '1'
 Write-Output "Prevent installation of New Outlook":
