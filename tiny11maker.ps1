@@ -374,6 +374,11 @@ Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\WindowsAI' 'Disable
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\WindowsAI' 'AllowRecallEnablement' 'REG_DWORD' '0'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\WindowsAI' 'TurnOffSavingSnapshots' 'REG_DWORD' '1'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\WindowsAI' 'DisableSettingsAgent' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\WindowsAI' 'DisableAgentConnectors' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\WindowsAI' 'DisableAgentWorkspaces' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\WindowsAI' 'DisableRemoteAgentConnectors' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\WindowsAI' 'AllowCopilotRuntime' 'REG_DWORD' '0'
+Set-RegistryValue 'HKLM\zSOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CopilotKey' 'SetCopilotHardwareKey' 'REG_SZ' ''
 
 Write-Output "Blocking AI model / generative AI access for apps (AppPrivacy + ConsentStore)"
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\AppPrivacy' 'LetAppsAccessSystemAIModels' 'REG_DWORD' '2'
