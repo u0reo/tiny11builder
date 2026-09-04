@@ -378,8 +378,9 @@ Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\WindowsAI' 'Disable
 Write-Output "Blocking AI model / generative AI access for apps (AppPrivacy + ConsentStore)"
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\AppPrivacy' 'LetAppsAccessSystemAIModels' 'REG_DWORD' '2'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\AppPrivacy' 'LetAppsAccessGenerativeAI' 'REG_DWORD' '2'
-Set-RegistryValue 'HKLM\zSOFTWARE\Microsoft\Windows\CurrentVersion\ConsentStore\generativeAI' 'Value' 'REG_SZ' 'Deny'
-Set-RegistryValue 'HKLM\zSOFTWARE\Microsoft\Windows\CurrentVersion\ConsentStore\systemAIModels' 'Value' 'REG_SZ' 'Deny'
+Set-RegistryValue 'HKLM\zSOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\generativeAI' 'Value' 'REG_SZ' 'Deny'
+Set-RegistryValue 'HKLM\zSOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels' 'Value' 'REG_SZ' 'Deny'
+Set-RegistryValue 'HKLM\zSOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\systemAIModels' 'RecordUsageData' 'REG_DWORD' '0'
 
 Write-Output "Disabling Edge AI features"
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Edge' 'CopilotPageContext' 'REG_DWORD' '0'
