@@ -388,6 +388,40 @@ foreach ($package in $packagesToRemove) {
     & 'dism' '/English' "/image:$($ScratchDisk)\scratchdir" '/Remove-ProvisionedAppxPackage' "/PackageName:$package"
 }
 
+Write-Output "Removing unused optional features:"
+$optionalFeatures = @(
+    'FaxServicesClientPackage',
+    'Printing-Foundation-InternetPrinting-Client',
+    'Xps-Foundation-Features'
+)
+foreach ($featureName in $optionalFeatures) {
+    try {
+        $feature = Get-WindowsOptionalFeature -Path "$ScratchDisk\scratchdir" -FeatureName $featureName -ErrorAction SilentlyContinue
+        if ($feature -and $feature.State -eq 'Enabled') {
+            Disable-WindowsOptionalFeature -Path "$ScratchDisk\scratchdir" -FeatureName $featureName -Remove -NoRestart
+            Write-Output "Removed optional feature: $featureName"
+        }
+    } catch {
+        Write-Output "Could not remove optional feature ${featureName}: $_"
+    }
+}
+
+$optionalCapabilities = @(
+    'Print.Fax.Scan~~~~0.0.1.0',
+    'XPS.Viewer~~~~0.0.1.0'
+)
+foreach ($capabilityName in $optionalCapabilities) {
+    try {
+        $capability = Get-WindowsCapability -Path "$ScratchDisk\scratchdir" -Name $capabilityName -ErrorAction SilentlyContinue
+        if ($capability -and $capability.State -eq 'Installed') {
+            Remove-WindowsCapability -Path "$ScratchDisk\scratchdir" -Name $capabilityName -ErrorAction Stop
+            Write-Output "Removed optional capability: $capabilityName"
+        }
+    } catch {
+        Write-Output "Could not remove optional capability ${capabilityName}: $_"
+    }
+}
+
 Write-Output "Removing Edge:"
 Remove-Item -Path "$ScratchDisk\scratchdir\Program Files (x86)\Microsoft\Edge" -Recurse -Force | Out-Null
 Remove-Item -Path "$ScratchDisk\scratchdir\Program Files (x86)\Microsoft\EdgeUpdate" -Recurse -Force | Out-Null
