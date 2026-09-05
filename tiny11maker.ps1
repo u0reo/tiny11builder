@@ -537,7 +537,7 @@ Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\Appx' 'RemoveDefaul
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\Appx\Microsoft.Copilot_8wekyb3d8bbwe' 'RemovePackage' 'REG_DWORD' '1'
 
 Write-Output "Disabling AI features in Notepad and Paint"
-Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\WindowsNotepad' 'DisableAIFeatures' 'REG_DWORD' '1'
+Set-RegistryValue 'HKLM\zSOFTWARE\Policies\WindowsNotepad' 'DisableAIFeatures' 'REG_DWORD' '1'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Paint' 'DisableCocreator' 'REG_DWORD' '1'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Paint' 'DisableImageCreator' 'REG_DWORD' '1'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Paint' 'DisableGenerativeFill' 'REG_DWORD' '1'
