@@ -103,6 +103,11 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
   </tbody>
 </table>
 
+## What is disabled in Tiny11maker:
+- Advertising ID for all users
+- Remote Registry service
+- Offline Maps service
+
 Keep in mind that **you cannot add back features in tiny11 core**! <br>
 You will be asked during image creation if you want to enable .net 3.5 support!
 
