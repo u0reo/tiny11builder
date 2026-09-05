@@ -61,6 +61,13 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
           <li>GetHelp</li>
           <li>GetStarted</li>
           <li>Office Hub</li>
+          <li>Copilot</li>
+          <li>New Outlook</li>
+          <li>Microsoft Teams</li>
+          <li>Dev Home</li>
+          <li>Photos</li>
+          <li>Windows Backup</li>
+          <li>Widgets</li>
           <li>Solitaire</li>
           <li>PeopleApp</li>
           <li>PowerAutomate</li>
