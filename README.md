@@ -1,6 +1,8 @@
 # tiny11builder
 *Scripts to build a trimmed-down Windows 11 image - now in **PowerShell**!*
 
+[日本語](README-ja.md)
+
 ## Introduction :
 Tiny11 builder, now completely overhauled. <br> After more than a year (for which I am so sorry) of no updates, tiny11 builder is now a much more complete and flexible solution - one script fits all. Also, it is a steppingstone for an even more fleshed-out solution.
 
@@ -61,6 +63,17 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
           <li>GetHelp</li>
           <li>GetStarted</li>
           <li>Office Hub</li>
+          <li>Microsoft Sticky Notes</li>
+          <li>Microsoft 3D Viewer</li>
+          <li>Mixed Reality Portal</li>
+          <li>OneNote</li>
+          <li>Paint</li>
+          <li>Skype</li>
+          <li>Wallet</li>
+          <li>Camera</li>
+          <li>Windows Terminal</li>
+          <li>Microsoft Family</li>
+          <li>Dolby Access</li>
           <li>Copilot</li>
           <li>New Outlook</li>
           <li>Microsoft Teams</li>
@@ -84,6 +97,7 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
           <li>Tablet PC Math</li>
           <li>Edge</li>
           <li>OneDrive</li>
+          <li>Windows Web Experience package</li>
           <li>Windows Spotlight features</li>
           <li>Search web and cloud results</li>
           <li>Voice activation for apps</li>
@@ -105,8 +119,23 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
 
 ## What is disabled in Tiny11maker:
 - Advertising ID for all users
-- Remote Registry service
-- Offline Maps service
+- Windows Spotlight, sponsored apps, and other consumer cloud content
+- Search highlights, web search, and cloud search results
+- Voice activation for apps, including activation above the lock screen
+- Widgets / News and Interests
+- Telemetry, Windows Error Reporting, user activity history, and Delivery Optimization peer-to-peer sharing
+- Windows AI features including Copilot, Recall, Click to Do, AI data analysis, snapshot saving, agent connectors, and app access to AI models
+- AI features in Edge, Notepad, and Paint
+- OneDrive folder backup, the Windows Chat taskbar icon, Reserved Storage, and BitLocker Device Encryption
+- `DiagTrack`, `WerSvc`, `dmwappushservice`, `WSAIFabricSvc`, `RemoteRegistry`, and `MapsBroker` services
+
+Windows Update itself is not disabled. Only Delivery Optimization peer-to-peer sharing is disabled.
+
+## Scheduled tasks removed in Tiny11maker:
+- Windows AI / Recall tasks
+- Application Compatibility Appraiser and Program Data Updater
+- Customer Experience Improvement Program tasks
+- Windows Error Reporting queue and Chkdsk Proxy tasks
 
 Keep in mind that **you cannot add back features in tiny11 core**! <br>
 You will be asked during image creation if you want to enable .net 3.5 support!
@@ -123,7 +152,7 @@ You will be asked during image creation if you want to enable .net 3.5 support!
 
 ## Features to be implemented:
 - ~~disabling telemetry~~ (Implemented in the 04-29-24 release!)
-- ~~more ad suppression~~ (Partially implemented in the 09-06-25 release!)
+- ~~more ad suppression~~ (Implemented in the 09-06-25 release!)
 - improved language and arch detection
 - more flexibility in what to keep and what to delete
 - maybe a GUI???
