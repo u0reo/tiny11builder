@@ -84,6 +84,10 @@ C:/path/to/your/tiny11/script.ps1 -ISO <letter> -SCRATCH <letter>
           <li>Tablet PC Math</li>
           <li>Edge</li>
           <li>OneDrive</li>
+          <li>Windows Spotlight features</li>
+          <li>Search web and cloud results</li>
+          <li>Voice activation for apps</li>
+          <li>Fax and Scan, XPS Viewer, and Internet Printing Client</li>
         </ul>
       </td>
       <td>
