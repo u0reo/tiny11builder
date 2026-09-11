@@ -521,8 +521,6 @@ Set-RegistryValue 'HKLM\zNTUSER\Software\Microsoft\InputPersonalization\TrainedD
 Set-RegistryValue 'HKLM\zNTUSER\Software\Microsoft\Personalization\Settings' 'AcceptedPrivacyPolicy' 'REG_DWORD' '0'
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\DataCollection' 'AllowTelemetry' 'REG_DWORD' '0'
 Set-RegistryValue 'HKLM\zSYSTEM\ControlSet001\Services\dmwappushservice' 'Start' 'REG_DWORD' '4'
-# Disable Windows AI Fabric service (Recall support service)
-Set-RegistryValue 'HKLM\zSYSTEM\ControlSet001\Services\WSAIFabricSvc' 'Start' 'REG_DWORD' '4'
 # Disable telemetry services and Windows Error Reporting
 Set-RegistryValue 'HKLM\zSYSTEM\ControlSet001\Services\DiagTrack' 'Start' 'REG_DWORD' '4'
 Set-RegistryValue 'HKLM\zSYSTEM\ControlSet001\Services\WerSvc' 'Start' 'REG_DWORD' '4'
@@ -625,9 +623,6 @@ Remove-Item -Path "$tasksPath\Microsoft\Windows\Chkdsk\Proxy" -Force -ErrorActio
 
 # Windows Error Reporting (QueueReporting)
 Remove-Item -Path "$tasksPath\Microsoft\Windows\Windows Error Reporting\QueueReporting" -Force -ErrorAction SilentlyContinue
-
-# Windows AI scheduled tasks (Recall / WindowsAI)
-Remove-Item -Path "$tasksPath\Microsoft\Windows\WindowsAI" -Recurse -Force -ErrorAction SilentlyContinue
 Write-Host "Task files have been deleted."
 Write-Host "Unmounting Registry..."
 reg unload HKLM\zCOMPONENTS | Out-Null
