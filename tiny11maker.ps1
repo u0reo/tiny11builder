@@ -443,7 +443,12 @@ reg load HKLM\zNTUSER $ScratchDisk\scratchdir\Users\Default\ntuser.dat | Out-Nul
 reg load HKLM\zSOFTWARE $ScratchDisk\scratchdir\Windows\System32\config\SOFTWARE | Out-Null
 reg load HKLM\zSYSTEM $ScratchDisk\scratchdir\Windows\System32\config\SYSTEM | Out-Null
 Write-Output "Detecting Windows release..."
-$windowsIs24H2 = reg query "HKLM\zSOFTWARE\Microsoft\Windows NT\CurrentVersion" /v DisplayVersion | Select-String -Pattern '24H2' -Quiet
+# Detect if the image is 24H2 or newer by comparing the numeric part of
+# DisplayVersion, so future releases (26H2, 30H2, ...) are handled correctly.
+$displayVersion = (reg query "HKLM\zSOFTWARE\Microsoft\Windows NT\CurrentVersion" /v DisplayVersion) |
+    Select-String -Pattern 'DisplayVersion\s+REG_SZ\s+(\d+)H' |
+    ForEach-Object { [int]$_.Matches[0].Groups[1].Value }
+$windowsIs24H2 = $displayVersion -ge 24
 Write-Output "Bypassing system requirements(on the system image):"
 Set-RegistryValue 'HKLM\zDEFAULT\Control Panel\UnsupportedHardwareNotificationCache' 'SV1' 'REG_DWORD' '0'
 Set-RegistryValue 'HKLM\zDEFAULT\Control Panel\UnsupportedHardwareNotificationCache' 'SV2' 'REG_DWORD' '0'
